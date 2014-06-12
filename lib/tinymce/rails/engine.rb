@@ -33,7 +33,7 @@ module TinyMCE::Rails
     end
 
     def self.default_base
-      File.join(asset_host || "", relative_url_root || "",
+      File.join((asset_host && "//#{asset_host}") || "", relative_url_root || "",
                 Rails.application.config.assets.prefix || "/",
                 "tinymce")
     end
